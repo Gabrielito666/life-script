@@ -1,0 +1,3 @@
+dist/bundle.js usr/lib/life-script/
+bin/life-script usr/bin/
+completions/life-script etc/bash_completion.d/

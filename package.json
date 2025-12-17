@@ -1,0 +1,19 @@
+{
+  "name": "life-script",
+  "version": "1.0.0",
+  "description": "organizador de la vida basado en un video de linux-chad",
+  "license": "ISC",
+  "author": "Gabriel Farías",
+  "type": "commonjs",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "build": "esbuild index.js --bundle --minify --platform=node --outfile=dist/bundle.js && dpkg-buildpackage -us -uc && mv ../life-script_* ./dist/",
+    "dev": "export LIFE_DIR=./life-test-dir/ && node index.js"
+  },
+  "devDependencies": {
+    "esbuild": "0.27.1"
+  }
+}

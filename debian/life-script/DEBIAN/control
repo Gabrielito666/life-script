@@ -1,0 +1,11 @@
+Package: life-script
+Version: 1.0.0
+Architecture: all
+Maintainer: Gabriel Antonio Farías Ravanal <galileo.fandango@gmail.com>
+Installed-Size: 25
+Suggests: nodejs
+Section: utils
+Priority: optional
+Homepage: https://github.com/tuusuario/life-script
+Description: Life Script - herramienta para gestión de calendario
+ CLI para gestionar calendarios en la carpeta ~/life usando archivos de texto

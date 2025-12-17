@@ -1,0 +1,13 @@
+Source: life-script
+Section: utils
+Priority: optional
+Maintainer: Gabriel Antonio Farías Ravanal <galileo.fandango@gmail.com>
+Build-Depends: debhelper-compat (= 13)
+Standards-Version: 4.6.2
+Homepage: https://github.com/tuusuario/life-script
+
+Package: life-script
+Architecture: all
+Suggests: nodejs
+Description: Life Script - herramienta para gestión de calendario
+ CLI para gestionar calendarios en la carpeta ~/life usando archivos de texto

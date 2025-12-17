@@ -1,0 +1,5 @@
+#!/bin/sh
+
+export LIFE_DIR=~/life/
+
+exec node /usr/lib/life-script/bundle.js "$@"

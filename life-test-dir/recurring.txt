@@ -1,0 +1,12 @@
+@daily
++ actividad diaria
++ otra actividad diaria
+
+@weekly thursday
++ comer pescado todas las semanas el jueves
+
+@monthly 20
++ pagar impuestos antes de la muerte por sii
+
+@yearly 25-12
++ navidad

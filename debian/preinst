@@ -1,0 +1,47 @@
+#!/bin/sh
+set -e
+
+MIN_MAJOR=23
+
+# Helper: run a command as the invoking user (when called via sudo/apt)
+run_as_user() {
+  if [ -n "${SUDO_USER:-}" ] && id "$SUDO_USER" >/dev/null 2>&1; then
+    sudo -u "$SUDO_USER" sh -lc "$1"
+  else
+    sh -lc "$1"
+  fi
+}
+
+# 1) First try: plain node in current environment (root)
+NODE_VERSION="$(node -v 2>/dev/null || true)"
+
+# 2) If not found, try through the invoking user's shell (loads profiles)
+if [ -z "$NODE_VERSION" ]; then
+  NODE_VERSION="$(run_as_user 'node -v 2>/dev/null || true')"
+fi
+
+# 3) If still not found, try loading NVM explicitly (common installs)
+if [ -z "$NODE_VERSION" ]; then
+  NODE_VERSION="$(run_as_user '
+    export NVM_DIR="${NVM_DIR:-$HOME/.nvm}";
+    [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh";
+    node -v 2>/dev/null || true
+  ')"
+fi
+
+if [ -z "$NODE_VERSION" ]; then
+  echo "life-script: Node.js was not found." >&2
+  echo "Please install Node.js >= ${MIN_MAJOR} (system-wide or via NVM) and try again." >&2
+  exit 1
+fi
+
+MAJOR="$(printf '%s\n' "$NODE_VERSION" | sed 's/^v//' | cut -d. -f1)"
+
+if [ "$MAJOR" -lt "$MIN_MAJOR" ]; then
+  echo "life-script: Your Node.js version is too old (found $NODE_VERSION)." >&2
+  echo "Node.js >= ${MIN_MAJOR} is required." >&2
+  exit 1
+fi
+
+exit 0
+

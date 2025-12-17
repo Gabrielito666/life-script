@@ -1,0 +1,3 @@
+./dist/bundle.js
+./bin/life-script
+./completions/life-script
