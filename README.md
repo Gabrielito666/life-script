@@ -1,107 +1,174 @@
 # LifeScript
 
-Es un sistema de scripts cli para manejar una carpeta `~/life` dentro de la cual organizar la vida. A dia de hoy solo hay soporte para 2 archivos principales (lo que no significa que no puedas ponerle los archivos que quieras).
+**LifeScript** is a **CLI-based scripting system** designed to help you organize your life from the terminal, using a central `~/life` folder.  
+Inside this directory you can keep different personal control files.  
+At the moment, the project focuses on two main files, although nothing prevents you from adding your own.
 
-## Instalación
+---
 
-para instalar life-script debes ejecutar:
+## Installation
+
+For now, LifeScript is available only for **Debian and Debian-based distributions**.
+
+To install it, run:
 
 ```bash
-curl
+curl -L -o /tmp/life-script.deb https://github.com/Gabrielito666/life-script/releases/download/v1.0.0/life-script_1.0.0_all.deb && sudo apt install /tmp/life-script.deb
 ```
 
-Esto instalará el archivo en `~/.life-script` y configurará un alias en `~/.bashrc`. Para desinstalar solo debes ejecutar:
-```bash
-rm -rf ~/.life-script
-```
-y luego eliminar el alias en `~.bashrc`.
+This will download the `.deb` package and install it using `apt`.
 
-En el caso de actualizar solo desinstala y vuelve a instalar.
+> ⚠️ **Important requirement**  
+> LifeScript requires **Node.js** to be installed, version **23 or higher**.
 
-## uso
+---
 
-Dentro de tu carpeta `~/life` ubicarás tus archivos de utilidad. Los princpales por ahora son:
+## General usage
 
-- calendar.txt
-- recurring.txt
+All the workflow happens inside the: `~/life`
 
-### calendar
 
-dentro de calendar.txt tendrás dias ordenados. El formato es:
+directory.
+There you will find (or create) the main files:
+
+- `calendar.txt`
+- `recurring.txt`
+
+---
+
+## calendar.txt
+
+This file contains your days organized in chronological order.
+
+### Basic format
 
 ```calendar.txt
 16-12-2025 tuesday
-+ hacer una cosa sin horario
-+ [8:45 p.m.] Hacer otra cosa pero en un horario espesífico
-+ otra cosa sin horario
++ do something without a specific time
++ [8:45 p.m.] do something else at a specific time
++ another task without a time
 
-17-12-2025 wensday
+17-12-2025 wednesday
 + bla bla bla
 ```
 
-las reglas son que la cabecera de cada día debe tener el formato indicado y las lineas del cuerpo un signo + al comenzar. Además solo se permiten dias cronoglógicos. Se adminten saltos pero no saltos al pasado, solo al futuro.
+### Important rules
 
-Los días se pueden añadir a mano, pero la forma más sencilla es usando el comando:
+- Each day starts with a **header** in the format: `DD-MM-YYYY day_name`
+
+- Task lines must start with a `+` sign.
+- Days must be in **chronological order**.
+- Skips to the future are allowed, but **going back in time is not**.
+
+You can edit this file manually, but LifeScript provides commands to make the process easier.
+
+---
+
+### Adding days automatically
+
+To add new days to the calendar:
 
 ```bash
 life-script add-calendar-days 10
 ```
 
-En este ejemplo añadí 10 días. Puedes pasar el numero que quieras. Esto añadirá 10 nuevos días desde el último dia en el calendario o desde hoy.
+This command:
+- Adds 10 consecutive new days
+- Starts from the last day already present in the calendar
+- Or from today, if the calendar is empty
 
-Esto solo añadirá las cabeceras de los días. Los eventos debes ponerlos tu, mal que mal es tu calendario.
+Only the **day headers** are added.  
+You are responsible for writing the events — after all, it’s *your* calendar.
 
-Para archivar los días pasados hay un script muy simple:
+---
+
+### Archiving past days
+
+To keep your daily workflow clean:
 
 ```bash
 life-script archive-calendar
 ```
 
-esto tomará todos los días ya pasados, los quitará y los llevará a un archivo oculto llamado `.calendar-archive.txt`, esto guarda tus días pero los quita de tu flujo diario.
+This command:
+- Detects days that are already in the past
+- Removes them from `calendar.txt`
+- Stores them in a hidden file called `.calendar-archive.txt`
 
-### recurring
+This way you keep your history without cluttering your current workflow.
 
-recurring.txt es un archivo para programar tareas recurrentes en el calendario.
+---
+
+## recurring.txt
+
+This file is used to define **recurring tasks** that should be applied to the calendar.
+
+### Format example
 
 ```recurring.txt
 @yearly 18-09
-+ comprar empanadas
-+ celebrar fiestas patrias
++ buy empanadas
++ celebrate national holidays
 
 @monthly 20
-+ pagar impuestos
++ pay taxes
 
 @weekly tuesday
-+ sacar la basura
-+ ir a clases de ajedrez
++ take out the trash
++ go to chess class
 
 @daily
-+ respirar
-+ comer
-+ algo que hagas todos los días
++ breathe
++ eat
++ something you do every day
 ```
 
-Como ves es bastánte intuitivo. Los tags comienzan con @ indicando tareas anuales, mensules, diarias y semanales.
-Luego con signo + tal cual las acciones de calendar.
+### How it works
 
-Para añadir las tareas recurrentes a los días proximos que figuren en tu calendario debes ejecutar:
+- Blocks start with `@`, indicating the recurrence type:
+- `@yearly`
+- `@monthly`
+- `@weekly`
+- `@daily`
+- Actions are defined with `+`, just like in `calendar.txt`.
+
+---
+
+### Applying recurring tasks to the calendar
+
+To automatically insert these tasks into the corresponding days:
 
 ```bash
 life-script push-recurring
 ```
 
-Esto rellenará los días que no incluyan dichas acciones segun lo que hayas indicado.
+This command:
+- Iterates over upcoming days in the calendar
+- Inserts recurring tasks where appropriate
+- Avoids duplicating actions that already exist
 
-### diagnostic
+---
 
-hay un comando para diagnosticar posibles errores de sintaxis en calendar.txt o recurring.txt
+## Diagnostics
+
+If you suspect syntax errors in `calendar.txt` or `recurring.txt`, you can run:
 
 ```bash
 life-script diagnostic
 ```
 
-Esto te mostrará en consola si hay probelams o no.
+This will analyze both files and report any issues directly in the terminal.
 
-## proximos pasos
+---
 
-En el futuro quiero añadir más funcionalidades para archivos de control de la alimentación o finanzas y reflexiones.
+## Next steps
+
+In the future, LifeScript may include additional files and commands for:
+
+- Food tracking
+- Personal finances
+- Daily reflections
+- Other personal organization systems
+
+The goal is to keep it **simple, text-based, and centered around a terminal-driven daily workflow**.
+
