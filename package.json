@@ -10,7 +10,7 @@
     "lib": "lib"
   },
   "scripts": {
-    "build": "esbuild index.js --bundle --minify --platform=node --outfile=dist/bundle.js && dpkg-buildpackage -us -uc && mv ../life-script_* ./dist/",
+    "build": "esbuild index.js --bundle --minify --platform=node --outfile=dist/bundle.js && chmod +x dist/bundle.js && dpkg-buildpackage -us -uc && mv ../life-script_* ./dist/",
     "dev": "export LIFE_DIR=./life-test-dir/ && node index.js"
   },
   "devDependencies": {

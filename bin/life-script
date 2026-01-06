@@ -1,5 +1,19 @@
 #!/bin/sh
+set -e
 
 export LIFE_DIR=~/life/
 
+# Check if node is available
+if ! command -v node >/dev/null 2>&1; then
+  echo "Error: Node.js is not installed" >&2
+  echo "" >&2
+  echo "Install Node.js using one of these methods:" >&2
+  echo "  • sudo apt install nodejs npm" >&2
+  echo "  • nvm install 18" >&2
+  echo "  • Visit: https://nodejs.org" >&2
+  echo "" >&2
+  exit 1
+fi
+
+# Execute the application
 exec node /usr/lib/life-script/bundle.js "$@"

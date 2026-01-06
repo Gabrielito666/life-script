@@ -4,7 +4,7 @@ Priority: optional
 Maintainer: Gabriel Antonio Farías Ravanal <galileo.fandango@gmail.com>
 Build-Depends: debhelper-compat (= 13)
 Standards-Version: 4.6.2
-Homepage: https://github.com/tuusuario/life-script
+Homepage: https://github.com/Gabrielito666/life-script
 
 Package: life-script
 Architecture: all

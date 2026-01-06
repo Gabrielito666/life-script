@@ -13,7 +13,7 @@ For now, LifeScript is available only for **Debian and Debian-based distribution
 To install it, run:
 
 ```bash
-curl -L -o /tmp/life-script.deb https://github.com/Gabrielito666/life-script/releases/download/v1.0.0/life-script_1.0.0_all.deb && sudo apt install /tmp/life-script.deb
+curl -L -o /tmp/life-script.deb https://github.com/Gabrielito666/life-script/releases/download/v1.0.0-2/life-script_1.0.0-2_all.deb && sudo apt install /tmp/life-script.deb
 ```
 
 This will download the `.deb` package and install it using `apt`.
