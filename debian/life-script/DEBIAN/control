@@ -1,8 +1,8 @@
 Package: life-script
-Version: 1.0.0-2
+Version: 1.0.1
 Architecture: all
 Maintainer: Gabriel Antonio Farías Ravanal <galileo.fandango@gmail.com>
-Installed-Size: 23
+Installed-Size: 28
 Suggests: nodejs
 Section: utils
 Priority: optional

@@ -1,0 +1,51 @@
+
+
+11-01-2026 sunday
++ tarea diaria 1 [x]
++ tarea diaria 2
++ tarea diaria 3
+
+12-01-2026 monday
++ tarea diaria 1 [x]
++ tarea diaria 2
++ tarea diaria 3
+
+13-01-2026 tuesday
++ tarea diaria 1 [x]
++ tarea diaria 2
++ tarea diaria 3
+
+14-01-2026 wednesday
++ tarea diaria 1 [x]
++ tarea diaria 2
++ tarea diaria 3
+
+15-01-2026 thursday
++ tarea diaria 1 [x]
++ tarea diaria 2
++ tarea diaria 3
+
+16-01-2026 friday
++ tarea diaria 1 [x]
++ tarea diaria 2
++ tarea diaria 3
+
+17-01-2026 saturday
++ tarea diaria 1 [x]
++ tarea diaria 2
++ tarea diaria 3
+
+18-01-2026 sunday
++ tarea diaria 1 [x]
++ tarea diaria 2
++ tarea diaria 3
+
+19-01-2026 monday
++ tarea diaria 1 [x]
++ tarea diaria 2
++ tarea diaria 3
+
+20-01-2026 tuesday
++ tarea diaria 1 [x]
++ tarea diaria 2
++ tarea diaria 3

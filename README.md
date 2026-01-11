@@ -13,7 +13,7 @@ For now, LifeScript is available only for **Debian and Debian-based distribution
 To install it, run:
 
 ```bash
-curl -L -o /tmp/life-script.deb https://github.com/Gabrielito666/life-script/releases/download/v1.0.0-2/life-script_1.0.0-2_all.deb && sudo apt install /tmp/life-script.deb
+curl -L -o /tmp/life-script.deb https://github.com/Gabrielito666/life-script/releases/download/v1.0.1/life-script_1.0.1_all.deb && sudo apt install /tmp/life-script.deb
 ```
 
 This will download the `.deb` package and install it using `apt`.
@@ -121,6 +121,14 @@ This file is used to define **recurring tasks** that should be applied to the ca
 + breathe
 + eat
 + something you do every day
+
+@unique 01-01-2100
++ big party
+
+@interval 01-01-2026 2
++ every other day
+
+@comment any
 ```
 
 ### How it works
@@ -130,6 +138,9 @@ This file is used to define **recurring tasks** that should be applied to the ca
 - `@monthly`
 - `@weekly`
 - `@daily`
+- `@unique`
+- `@interval`
+- `@comment`
 - Actions are defined with `+`, just like in `calendar.txt`.
 
 ---

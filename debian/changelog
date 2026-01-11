@@ -1,3 +1,15 @@
+life-script (1.0.1) unstable; urgency=medium
+
+  * Refactorizar comandos para mayor modularidad y escalabilidad
+  * Refactorizar sistema de tags en parse-recurring
+  * Añadir tag @unique para tareas en fechas específicas
+  * Añadir tag @interval para tareas con intervalos personalizados
+  * Añadir tag @comment para comentarios en archivos recurring
+  * Añadir comando life-script help
+  * Corregir errores de espaciado al codificar archivos
+
+ -- Gabriel Antonio Farías Ravanal <galileo.fandango@gmail.com>  Sun, 12 Jan 2025 00:00:00 +0000
+
 life-script (1.0.0-2) unstable; urgency=medium
 
   * Simplificar dependencia a nodejs (>= 18)

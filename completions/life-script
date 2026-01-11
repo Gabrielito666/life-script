@@ -5,7 +5,7 @@ _life_script_completion() {
     cur="${COMP_WORDS[COMP_CWORD]}"
     prev="${COMP_WORDS[COMP_CWORD-1]}"
 
-    opts="diagnostic add-calendar-days archive-calendar push-recurring"
+    opts="diagnostic add-calendar-days archive-calendar push-recurring help"
 
     COMPREPLY=( $(compgen -W "${opts}" -- "${cur}") )
     return 0
