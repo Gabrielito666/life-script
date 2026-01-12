@@ -1,5 +1,3 @@
-falta:
+para el proximo fix: 1.0.1-1
 
-- habilitar tests para cada modulo
-
-una vez esten listas estas funcionalidades hay que publicar versión 1.0.1
+- push recurring sigue añadiendo un \n\n al comienzo
